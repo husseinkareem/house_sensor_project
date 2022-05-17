@@ -17,5 +17,4 @@ public class ThymeleafController {
         return "index";
     }
 }
-//avrage, groupby för vg
 
