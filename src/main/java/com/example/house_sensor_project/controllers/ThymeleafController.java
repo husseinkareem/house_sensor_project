@@ -14,7 +14,13 @@ public class ThymeleafController {
         model.addAttribute("temp", dataDAO.getLatestTemp());
         model.addAttribute("humidity", dataDAO.getLatestHumidity());
         model.addAttribute("price", dataDAO.getLatestEnergy());
-        return "index";
+        model.addAttribute("AllAvgTempA", dataDAO.avgTempA());
+        model.addAttribute("AllAvgTempB", dataDAO.avgTempB());
+        model.addAttribute("AllAvgTempC", dataDAO.avgTempC());
+        model.addAttribute("AllAvgHumidityA", dataDAO.avgHumidityA());
+        model.addAttribute("AllAvgHumidityB", dataDAO.avgHumidityB());
+        model.addAttribute("AllAvgHumidityC", dataDAO.avgHumidityC());
+        return "overall";
     }
 }
 

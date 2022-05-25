@@ -6,12 +6,13 @@
 <body>
 Overall data:
 <br>
-temp
-<div th:text="${temp}"/>
-humidity
-<div th:text="${humidity}"/>
-price
-<div th:text="${price}"/>
+    <tr th:each="rad:$(data)">
 
+    <td th:text="${rad.data}"/>
+    <td th:text="${rad.dateTime}"/>
+    <td th:text="${rad.HusSektion}"/>
+    <td th:text="${rad.Genomsnitt}"/>
+
+    </tr>
 </body>
 </html>

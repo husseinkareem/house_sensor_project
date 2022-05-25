@@ -13,5 +13,4 @@ public class sensorData implements Serializable {
         this.dateTime = dateTime;
     }
     public sensorData(){}
-
 }
