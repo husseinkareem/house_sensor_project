@@ -200,4 +200,112 @@ public class HouseDAO {
         return theList;
 
     }
+
+    public List<sensorData> avgTempC(){
+        List<sensorData> theList = new ArrayList<>();
+
+        String query1 = "select House_section.section_name as HusSektion, avg(data) as Genomsnitt, date(timestamp) as Datum, Sensor_type.sensor_name as Sensor from Sensor  inner join House_section on Sensor.house_sensor_id = House_section.idHouse_section inner join Sensor_type on Sensor.sensor_type_id = Sensor_type.idsensor_type   where date(timestamp) = date(timestamp) and House_section.section_name = 'C' and Sensor_type.sensor_name = 'temp' group by date(timestamp), Sensor.sensor_type_id, House_section.idHouse_section  order by date(timestamp) desc;";
+
+        try (Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/sensor_project",
+                "root2", "hejhej");
+
+             Statement stmt = con.createStatement();
+
+             ResultSet rs = stmt.executeQuery(query1)
+        ){
+
+            while (rs.next()) {
+                String data = rs.getString("Genomsnitt");
+                String time = rs.getString("Datum");
+                theList.add(new sensorData(data, time));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return theList;
+
+    }
+
+    public List<sensorData> avgHumidityA(){
+        List<sensorData> theList = new ArrayList<>();
+
+        String query1 = "select House_section.section_name as HusSektion, avg(data) as Genomsnitt, date(timestamp) as Datum, Sensor_type.sensor_name as Sensor from Sensor  inner join House_section on Sensor.house_sensor_id = House_section.idHouse_section inner join Sensor_type on Sensor.sensor_type_id = Sensor_type.idsensor_type   where date(timestamp) = date(timestamp) and House_section.section_name = 'A' and Sensor_type.sensor_name = 'humidity' group by date(timestamp), Sensor.sensor_type_id, House_section.idHouse_section  order by date(timestamp) desc;";
+
+        try (Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/sensor_project",
+                "root2", "hejhej");
+
+             Statement stmt = con.createStatement();
+
+             ResultSet rs = stmt.executeQuery(query1)
+        ){
+
+            while (rs.next()) {
+                String data = rs.getString("Genomsnitt");
+                String time = rs.getString("Datum");
+                theList.add(new sensorData(data, time));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return theList;
+
+    }
+
+    public List<sensorData> avgHumidityB(){
+        List<sensorData> theList = new ArrayList<>();
+
+        String query1 = "select House_section.section_name as HusSektion, avg(data) as Genomsnitt, date(timestamp) as Datum, Sensor_type.sensor_name as Sensor from Sensor  inner join House_section on Sensor.house_sensor_id = House_section.idHouse_section inner join Sensor_type on Sensor.sensor_type_id = Sensor_type.idsensor_type   where date(timestamp) = date(timestamp) and House_section.section_name = 'B' and Sensor_type.sensor_name = 'humidity' group by date(timestamp), Sensor.sensor_type_id, House_section.idHouse_section  order by date(timestamp) desc;";
+
+        try (Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/sensor_project",
+                "root2", "hejhej");
+
+             Statement stmt = con.createStatement();
+
+             ResultSet rs = stmt.executeQuery(query1)
+        ){
+
+            while (rs.next()) {
+                String data = rs.getString("Genomsnitt");
+                String time = rs.getString("Datum");
+                theList.add(new sensorData(data, time));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return theList;
+
+    }
+
+    public List<sensorData> avgHumidityC(){
+        List<sensorData> theList = new ArrayList<>();
+
+        String query1 = "select House_section.section_name as HusSektion, avg(data) as Genomsnitt, date(timestamp) as Datum, Sensor_type.sensor_name as Sensor from Sensor  inner join House_section on Sensor.house_sensor_id = House_section.idHouse_section inner join Sensor_type on Sensor.sensor_type_id = Sensor_type.idsensor_type   where date(timestamp) = date(timestamp) and House_section.section_name = 'C' and Sensor_type.sensor_name = 'humidity' group by date(timestamp), Sensor.sensor_type_id, House_section.idHouse_section  order by date(timestamp) desc;";
+
+        try (Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/sensor_project",
+                "root2", "hejhej");
+
+             Statement stmt = con.createStatement();
+
+             ResultSet rs = stmt.executeQuery(query1)
+        ){
+
+            while (rs.next()) {
+                String data = rs.getString("Genomsnitt");
+                String time = rs.getString("Datum");
+                theList.add(new sensorData(data, time));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return theList;
+
+    }
 }
